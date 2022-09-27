@@ -1,5 +1,20 @@
 /*
-Covid 19 Data Exploration 
+COVID-19 Data 
+
+Overview:
+We have a COVID-19 Data containing detailed information and the whole data is distributed into two tables called as CovidDeaths and CovidVaccinations. The table contains both categorical and numerical variables.
+
+Below are the fields on which we have worked on:
+- continent 
+- location	
+- date	
+- total_cases	
+- new_cases	
+- total_deaths	
+- total_vaccinations	
+- people_vaccinated	
+- people_fully_vaccinated	
+- new_vaccinations	
 
 Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
 
@@ -11,7 +26,7 @@ Where continent is not null
 order by 3,4
 
 
--- Select Data that we are going to be starting with
+-- Required Data to start with
 
 Select Location, date, total_cases, new_cases, total_deaths, population
 From PortfolioProject..CovidDeaths
@@ -20,7 +35,7 @@ order by 1,2
 
 
 -- Total Cases vs Total Deaths
--- Shows likelihood of dying if you contract covid in your country
+-- Shows likelihood of dying if a person contracts covid in United States
 
 Select Location, date, total_cases,total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 From PortfolioProject..CovidDeaths
@@ -60,7 +75,7 @@ order by TotalDeathCount desc
 
 -- BREAKING THINGS DOWN BY CONTINENT
 
--- Showing contintents with the highest death count per population
+-- listing contintents with the highest death count per population
 
 Select continent, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From PortfolioProject..CovidDeaths
@@ -96,7 +111,7 @@ where dea.continent is not null
 order by 2,3
 
 
--- Using CTE to perform Calculation on Partition By in previous query
+-- Using CTE to perform calculation on Partition By in previous query
 
 With PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
 as
@@ -116,7 +131,7 @@ From PopvsVac
 
 
 
--- Using Temp Table to perform Calculation on Partition By in previous query
+-- Using Temp Table to perform calculation on Partition By in previous query
 
 DROP Table if exists #PercentPopulationVaccinated
 Create Table #PercentPopulationVaccinated
