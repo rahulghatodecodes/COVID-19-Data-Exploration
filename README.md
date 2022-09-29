@@ -23,8 +23,7 @@ reproduction_rate, icu_patients, hosp_patients, new_tests,	total_tests, positive
 https://ourworldindata.org/covid-deaths
 
 ## Objective
-- Data Exploration
-- Data Visualization
+- Perform Exploratory Data Analysis and Data Visualization
 
 ## Tools & Technologies used
 - Microsoft SQL Server Management Studio (SSMS)
