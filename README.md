@@ -38,4 +38,3 @@ https://ourworldindata.org/covid-deaths
 - Listed contintents with the highest death count per population.
 - Calculated Percentage of Population that has recieved at least one Covid Vaccine
 
-## Visualization using Tableau
